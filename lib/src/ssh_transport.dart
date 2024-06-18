@@ -180,6 +180,7 @@ class SSHTransport {
 
   void sendPacket(Uint8List data) {
     if (isClosed) {
+      return;
       throw SSHStateError('Transport is closed');
     }
     final packetAlign = _encryptCipher == null
